@@ -1,0 +1,101 @@
+<div class="container col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <form [formGroup]="regForm" (ngSubmit)="onSubmit()" novalidate>
+      <h2>
+        Please Sign Up
+        <small>It's free and always will be.</small>
+      </h2>
+      <hr class="colorgraph">
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+            <input type="text" autocomplete="off" formControlName="first_name" [(ngModel)] = "userObj.first_name" name="first_name" class="form-control input-lg" id="first_name" placeholder="First Name">
+          </div>
+          <div *ngIf="regForm.controls['first_name'].invalid && (regForm.controls['first_name'].dirty || regForm.controls['first_name'].touched)" class="alert alert-danger">
+              <div *ngIf="regForm.controls['first_name'].errors.required">
+                Please enter your First Name
+              </div>
+            </div>
+        </div>
+  
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+            <input type="text" autocomplete="off" formControlName="last_name" [(ngModel)] = "userObj.last_name" name="last_name" class="form-control input-lg" id="last_name" placeholder="Last Name">
+          </div>
+          <div *ngIf="regForm.controls['last_name'].invalid && (regForm.controls['last_name'].dirty || regForm.controls['last_name'].touched)" class="alert alert-danger">
+              <div *ngIf="regForm.controls['last_name'].errors.required">
+                Please enter your Last Name
+              </div>
+            </div>
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <input type="text" autocomplete="off" formControlName="display_name" [(ngModel)] = "userObj.display_name" name="display_name" class="form-control input-lg" id="display_name" placeholder="Display Name">
+      </div>
+      <div *ngIf="regForm.controls['display_name'].invalid && (regForm.controls['display_name'].dirty || regForm.controls['display_name'].touched)" class="alert alert-danger">
+          <div *ngIf="regForm.controls['display_name'].errors.required">
+            Please enter your Display Name
+          </div>
+        </div>
+  
+      <div class="form-group">
+        <input type="email" autocomplete="off"  formControlName="email" [(ngModel)] = "userObj.email" name="email" class="form-control input-lg" id="email" placeholder="Email Address">
+      </div>
+      <div *ngIf="regForm.controls['email'].invalid && (regForm.controls['email'].dirty || regForm.controls['email'].touched)" class="alert alert-danger">
+          <div *ngIf="regForm.controls['email'].errors.required">
+            Please enter your Email-ID
+          </div>
+        </div>
+  
+      <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+            <input type="password" formControlName="password"  [(ngModel)] = "userObj.password" name="password" id="password" class="form-control input-lg" placeholder="Password">
+          </div>
+          <div *ngIf="regForm.controls['password'].invalid && (regForm.controls['password'].dirty || regForm.controls['password'].touched)" class="alert alert-danger">
+              <div *ngIf="regForm.controls['password'].errors.required">
+                Please enter your Password
+              </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-6">
+          <div class="form-group">
+            <input type="password" formControlName="password_confirmation" [(ngModel)] = "userObj.password_confirmation" name="password_confirmation" id="password_confirmation" class="form-control input-lg"
+              placeholder="Confirm Password">
+          </div>
+          <div *ngIf="regForm.controls['password_confirmation'].invalid && (regForm.controls['password_confirmation'].dirty || regForm.controls['password_confirmation'].touched)" class="alert alert-danger">
+              <div *ngIf="regForm.controls['password_confirmation'].errors.required">
+                Please Re-Enter your Password
+              </div>
+            </div>
+        </div>
+      </div>
+  
+      <div class="row">
+        <div class="col-xs-4 col-sm-3 col-md-3">
+          <span class="button-checkbox">
+            <button type="button" class="btn" data-color="info">
+              <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">I Agree
+            </button>
+          </span>
+        </div>
+        <div class="col-xs-8 col-sm-9 col-md-9">
+          By clicking
+          <strong class="label label-primary">Register</strong>, you agree to the
+          <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+        </div>
+      </div>
+  
+      <hr class="colorgraph">
+      <div class="row">
+        <div class="col-xs-12 col-md-6">
+          <input type="submit" value="Register" class="btn btn-primary btn-block btn-lg">
+        </div>
+        <div class="col-xs-12 col-md-6">
+          <a href="/login" class="btn btn-success btn-block btn-lg">Already Registered ?</a>
+        </div>
+      </div>
+    </form>
+  
+  </div>
+  
